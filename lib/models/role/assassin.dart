@@ -34,6 +34,33 @@ class Assassin extends Role {
           },
         );
 
+  Assassin.info()
+      : super.info(
+          name: 'Assassino em série',
+          team: 'Solo',
+          roleImg: 'assets/images/assassin.png',
+          objective:
+              'Seu objetivo é eliminar todos os jogadores. Você vence se for o último jogador vivo.',
+          skills: {
+            1: Skill(
+                name: 'Assassinato',
+                description:
+                    "Todo turno você escolhe um jogador para eliminar.",
+                icon: 'assets/images/dagger.png',
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1),
+            2: Skill(
+                name: "Sequestro",
+                description:
+                    "Uma vez por jogo você pode sequestrar um jogador. Ele é impedido de usar habilidades por 2 turnos.",
+                icon: 'assets/images/string.png',
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1)
+          },
+        );
+
   /// Elimina o jogador alvo depois de um turno.
   ///
   /// @param targetPlayer Jogador alvo que será eliminado.

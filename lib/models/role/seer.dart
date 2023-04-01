@@ -34,6 +34,33 @@ class Seer extends Role {
               ),
             });
 
+  Seer.info()
+      : super.info(
+            name: "Vidente",
+            team: "Aldeões",
+            roleImg: 'assets/images/seer3.png',
+            objective:
+                "Seu objetivo é descobrir quem são os lobisomens e ajudar os aldeões a vencerem o jogo.",
+            skills: {
+              1: Skill(
+                name: "Revelar",
+                description: "Você pode ver a função de outro jogador.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/seerEye.png',
+              ),
+              2: Skill(
+                name: "Contactar",
+                description:
+                    "Você pode ver a função de um jogador que ja morreu.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/tarot.png',
+              ),
+            });
+
   String revelar(Player targetPlayer) {
     var playerName = targetPlayer.name;
     var roleFakeName = player!.role.fakeName;

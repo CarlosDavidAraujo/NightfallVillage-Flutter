@@ -37,6 +37,33 @@ class Doctor extends Role {
               ),
             });
 
+  Doctor.info()
+      : super.info(
+            name: "Médica",
+            team: "Aldeões",
+            roleImg: 'assets/images/doctor.png',
+            objective: "Seu objetivo é proteger e manter os aldeões vivos.",
+            skills: {
+              1: Skill(
+                name: "Curar",
+                description:
+                    "Impede um jogador de morrer esta noite. Não pode selecionar o mesmo alvo em turnos seguidos.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/medicine.png',
+              ),
+              2: Skill(
+                name: "Reanimar",
+                description:
+                    "Uma vez por jogo ressuscite um jogador eliminado.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/syringe.png',
+              ),
+            });
+
   void curar(Player targetPlayer) {
     targetPlayer.setProtectedTurnsDuration(1);
     _lastHealedTarget = targetPlayer;

@@ -45,6 +45,34 @@ class Scientist extends Role {
               ),
             });
 
+  Scientist.info()
+      : super.info(
+            name: "Cientista Maluco",
+            team: "Aldeões",
+            roleImg: 'assets/images/scientist.png',
+            objective:
+                "Seu objetivo é ajudar a erradicar os lobisomens, mas tudo que você faz é imprevisível.",
+            skills: {
+              1: Skill(
+                name: "Experimento",
+                description:
+                    "Uma vez por jogo escolha um jogador. Se for um lobisomem, transforme-o em aldeão. Se for aldeão transforme-o em lobisomem.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/tube.png',
+              ),
+              2: Skill(
+                name: "Alquimia",
+                description:
+                    'Crie 1 de 3 poções aleatórias (pavor, confusão ou manipulação), sem repetir a mesma poção a cada turno. Bloqueia "Alquimia" após 3 usos.',
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/potion.png',
+              ),
+            });
+
   void experimentar(Player targetPlayer) {
     if (targetPlayer.belongsToVillagersTeam()) {
       var werewolf = Werewolf(game, targetPlayer);

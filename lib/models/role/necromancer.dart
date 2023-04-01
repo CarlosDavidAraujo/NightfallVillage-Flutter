@@ -35,6 +35,34 @@ class Necromancer extends Role {
               ),
             });
 
+  Necromancer.info()
+      : super.info(
+            name: "Necromante",
+            team: "Undeads",
+            roleImg: 'assets/images/necromancer.png',
+            objective:
+                "Seu objetivo é agir em conjunto com o zumbi para infectar toda a aldeia. Vocês vencerão quando todos estiverem infectados.",
+            skills: {
+              1: Skill(
+                name: "Perpetuar",
+                description:
+                    "Escolha um zumbi alvo, a vida dele é extendida por mais 1 turno. Isso nao previne dele ser morto na votação",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/deathClock.png',
+              ),
+              2: Skill(
+                name: "Recompor",
+                description:
+                    "Uma vez por jogo você escolhe um jogador eliminado, ele volta ao jogo como um zumbi com habilidades próprias.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/deadHand.png',
+              ),
+            });
+
   void perpetuar(Player targetPlayer) {
     targetPlayer.dieAfterManyTurns(2);
   }

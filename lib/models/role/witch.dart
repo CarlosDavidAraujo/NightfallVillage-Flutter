@@ -40,6 +40,34 @@ class Witch extends Role {
               ),
             });
 
+  Witch.info()
+      : super.info(
+            name: "Feiticeira",
+            team: "Lobisomens",
+            roleImg: 'assets/images/witch.png',
+            objective:
+                "Seu objetivo é descobrir quem são os videntes e atrapalhar os aldeões para que os lobisomens vençam.",
+            skills: {
+              1: Skill(
+                name: "Maldição",
+                description:
+                    "Você bloqueia uma habilidade aleatória de um jogador por 1 turno. Não pode selecionar o mesmo alvo em turnos seguidos.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/darkPotion.png',
+              ),
+              2: Skill(
+                name: "Premonição",
+                description:
+                    "Selecione um jogador para ver se ele é lobisomem ou vidente",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/crystalBall.png',
+              ),
+            });
+
   void amaldicoar(Player targetPlayer) {
     var randomSkill = Random().nextInt(2) + 1;
     targetPlayer.role.disableSkill(randomSkill, 1);

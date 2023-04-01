@@ -32,6 +32,31 @@ class Crusader extends Role {
                   turnItWasDisabled: -1,
                   icon: 'assets/images/balance.png')
             });
+  Crusader.info()
+      : super.info(
+            name: "Cruzado",
+            team: "Aldeões",
+            roleImg: 'assets/images/crusader.png',
+            objective:
+                "Seu objeitvo é proteger os aldeões e descobrir os lobisomens.",
+            skills: {
+              1: Skill(
+                  name: "Sacrifício",
+                  description:
+                      "Escolha um jogador. Se ele morreria esta noite você morre no lugar dele.",
+                  targetType: true,
+                  enableTurn: -1,
+                  turnItWasDisabled: -1,
+                  icon: 'assets/images/shield.png'),
+              2: Skill(
+                  name: "Julgamento",
+                  description:
+                      "Escolha um jogador. Se for um lobisomem, ele será exposto e julgamento é bloqueado permanentemente, se for um aldeão, julgamento e seus votos são bloqueados por 2 rodadas.",
+                  targetType: true,
+                  enableTurn: -1,
+                  turnItWasDisabled: -1,
+                  icon: 'assets/images/balance.png')
+            });
 
   void sacrificar(Player targetPlayer) {
     targetPlayer.protector = player;

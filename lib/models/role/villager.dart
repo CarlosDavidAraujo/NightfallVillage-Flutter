@@ -37,6 +37,34 @@ class Villager extends Role {
               ),
             });
 
+  Villager.info()
+      : super.info(
+            name: "Aldeão",
+            team: "Aldeões",
+            roleImg: 'assets/images/villager.png',
+            objective:
+                "Seu objetivo é descobrir quem são os lobisomens e tentar proteger seus aliados.",
+            skills: {
+              1: Skill(
+                name: "Espiar",
+                description:
+                    "Você tem 5% de chance de descobrir um lobisomem. Se conseguir, há 15% de chance dele te matar.",
+                targetType: false,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/keyhole.png',
+              ),
+              2: Skill(
+                name: "Rezar",
+                description:
+                    "Escolha outro jogador. Ele tem 5% de chance de ser protegido.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/pray.png',
+              ),
+            });
+
   String espiar() {
     var alivePlayers = game!.alivePlayers;
     const deathChance = 0.15;
@@ -68,6 +96,13 @@ class Villager extends Role {
 
 class OldMan extends Villager {
   OldMan(Game? game, Player? player) : super(game, player) {
+    name = "Velho Caduco";
+    objective =
+        "Você é um aldeão comum, mas sempre que usar uma habilidade ela será bloqueada por 2 turnos.";
+    roleImg = 'assets/images/oldMan.png';
+  }
+
+  OldMan.info() : super.info() {
     name = "Velho Caduco";
     objective =
         "Você é um aldeão comum, mas sempre que usar uma habilidade ela será bloqueada por 2 turnos.";

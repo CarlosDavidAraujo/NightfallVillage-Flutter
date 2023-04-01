@@ -37,6 +37,34 @@ class Gunslinger extends Role {
               )
             });
 
+  Gunslinger.info()
+      : super.info(
+            name: "Pistoleiro",
+            team: "Aldeões",
+            roleImg: 'assets/images/gunslinger.png',
+            objective:
+                "Seu objetivo é eliminar os lobisomens e ajudar os aldeões a vencerem o jogo.",
+            skills: {
+              1: Skill(
+                name: "Tome Bala!",
+                description:
+                    "Duas vezes por jogo escolha alguém para eliminar.",
+                targetType: true,
+                enableTurn: -1,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/revolver.png',
+              ),
+              2: Skill(
+                name: "BANG",
+                description:
+                    "Passivo: seus tiros sâo muito barulhentos e sua função será revelada após o primeiro disparo.",
+                targetType: false,
+                enableTurn: 1000,
+                turnItWasDisabled: -1,
+                icon: 'assets/images/bang.png',
+              )
+            });
+
   void atirar(Player targetPlayer) {
     targetPlayer.dieAfterManyTurns(1);
     if (_charges == 2) {
