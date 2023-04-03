@@ -83,13 +83,13 @@ class LonelyWerewolf extends Werewolf {
     name = "Lobisomem Solitário";
     objective =
         "Seu objeitvo é eliminar todos os aldeões, mas você só vencerá se for o último lobisomem vivo.";
-    roleImg = 'loneWolfImg';
+    roleImg = 'assets/images/loneWolf.png';
   }
 
   LonelyWerewolf.info() : super.info() {
     name = "Lobisomem Solitário";
     objective =
         "Seu objeitvo é eliminar todos os aldeões, mas você só vencerá se for o último lobisomem vivo.";
-    roleImg = 'loneWolfImg';
+    roleImg = 'assets/images/loneWolf.png';
   }
 }

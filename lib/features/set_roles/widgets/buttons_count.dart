@@ -1,8 +1,8 @@
-/* import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class ButtonCount extends StatelessWidget {
-  final Function? onIncrease;
-  final Function? onDecrease;
+  final VoidCallback? onIncrease;
+  final VoidCallback? onDecrease;
   final int? count;
   const ButtonCount(
       {Key? key,
@@ -14,11 +14,12 @@ class ButtonCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(onPressed: () => onDecrease, icon: Icon(Icons.plus_one)),
+        IconButton(onPressed: onDecrease, icon: Icon(Icons.remove)),
         Text(count.toString(), style: Theme.of(context).textTheme.labelMedium),
-        IconButton(onPressed: () => onIncrease, icon: Icon(Icons.remove))
+        IconButton(onPressed: onIncrease, icon: Icon(Icons.add))
       ],
     );
   }
-} */
+} 

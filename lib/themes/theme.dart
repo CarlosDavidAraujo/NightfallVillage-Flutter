@@ -16,7 +16,7 @@ class CustomTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll<Color>(MyTheme._foregroundColor),
+                 const MaterialStatePropertyAll<Color>(MyTheme._foregroundColor),
               textStyle: MaterialStatePropertyAll<TextStyle>(
                   MyTheme._elevatedButtonTextStyle)),
         ),

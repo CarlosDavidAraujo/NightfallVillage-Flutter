@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:nightfall_village_flutter/features/set_roles/widgets/buttons_count.dart';
-import 'package:nightfall_village_flutter/features/set_roles/widgets/modal.dart';
+//import 'package:nightfall_village_flutter/features/set_roles/widgets/modal.dart';
 import 'package:nightfall_village_flutter/models/role/role.dart';
 //import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class RoleCard extends StatelessWidget {
   final Role role;
-  final Function? onDecrease;
-  final Function? onIncrease;
+  final VoidCallback? onDecrease;
+  final VoidCallback? onIncrease;
   final int? count;
+  final bool selected;
   const RoleCard(
       {Key? key,
       required this.role,
       this.onDecrease,
       this.onIncrease,
-      this.count})
+      this.count,
+      this.selected = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration:
-            BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
-        padding: EdgeInsets.all(5),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: IconButton(
                 icon: Icon(Icons.info),
@@ -37,9 +38,11 @@ class RoleCard extends StatelessWidget {
               }) */
               ),
             ),
-            Image.asset(role.roleImg),
-            /*  ButtonCount(
-                onIncrease: onIncrease, onDecrease: onDecrease, count: count) */
+            FractionallySizedBox(
+              widthFactor: 0.7,
+              child: Image.asset(role.roleImg),
+            ),        
+            selected? ButtonCount(onIncrease: onIncrease, onDecrease: onDecrease, count: count) : SizedBox.shrink() 
           ],
         ));
   }

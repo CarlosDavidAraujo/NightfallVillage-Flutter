@@ -6,7 +6,7 @@ class ContainerOldPaper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 5),
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
             color: Color(0xff794b22),
